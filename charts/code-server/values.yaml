@@ -1,0 +1,25 @@
+image:
+  repository: codercom/code-server
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 8443
+  nodePort: 30443
+
+persistence:
+  config:
+    enabled: true
+    hostPath: /path/to/dir/config
+  projects:
+    enabled: true
+    hostPath: /path/to/dir/projects
+
+securityContext: # Correct values if needed
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+
+codeServer:
+  password: "your_secure_password_here" # Please change...
